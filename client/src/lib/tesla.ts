@@ -1,6 +1,6 @@
 import type { VehicleStatus } from "@shared/schema";
 
-const TESLA_AUTH_URL = "https://auth.tesla.com/oauth2/v3";
+const TESLA_AUTH_URL = "https://auth.tesla.com/oauth2/v3/authorize";
 const TESLA_API_URL = "https://owner-api.teslamotors.com/api/1";
 
 export class TeslaClient {
@@ -21,7 +21,7 @@ export class TeslaClient {
           client_id: "ownerapi",
           code,
           code_verifier: codeVerifier,
-          redirect_uri: `${window.location.origin}/login`
+          redirect_uri: "https://auth.tesla.com/void/callback"
         })
       });
 
